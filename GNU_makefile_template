@@ -1,0 +1,15 @@
+CC = gcc
+CCFLAGS = -g -Wall -I.
+
+LOCFLAGS =
+
+all: $(OBJECTS) 
+
+%.o: %.c
+	$(CC) $(CCFLAGS) $(LOCFLAGS) -c $< -o $@
+
+%.out: %.o 
+	$(CC) $(CCFLAGS) $(LOCFLAGS) $< -o $@
+
+clean:
+	rm -rf *.o *.out
